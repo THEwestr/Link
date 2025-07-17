@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeonFPS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+    }
+
+    header {
+      background: #0f0f0f;
+      padding: 20px;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2em;
+      color: #00ffff;
+      text-shadow: 0 0 15px #00ffff;
+      box-shadow: 0 0 20px #00ffff20;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      color: #ff00ff;
+      text-shadow: 0 0 15px #ff00ff;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      color: #ccc;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .play-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      background: #00ffff;
+      color: #000;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 0 20px #00ffffa0, 0 0 40px #00ffff40;
+    }
+
+    .play-button:hover {
+      background: #ff00ff;
+      box-shadow: 0 0 20px #ff00ffa0, 0 0 40px #ff00ff50;
+      color: #fff;
+    }
+
+    .modes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 2px solid #00ffff40;
+      border-radius: 15px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      box-shadow: 0 0 10px #00ffff20;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #ff00ff60;
+      border-color: #ff00ff70;
+    }
+
+    .card h3 {
+      color: #00ffff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 0.95em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #888;
+      border-top: 1px solid #333;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+      .play-button {
+        font-size: 1em;
+        padding: 10px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>NEON FPS</header>
+
+<section class="hero">
+  <h1>Neon’un İçinde Hayatta Kal</h1>
+  <p>
+    NeonFPS, bilim kurgu evreninde geçen hızlı tempolu bir çok oyunculu FPS oyunudur. 
+    Işık, hız ve refleks burada her şeydir. Karanlıkta seni kim görecek?
+  </p>
+  <a href="#" class="play-button">Şimdi Oyna</a>
+</section>
+
+<section class="modes">
+  <div class="card">
+    <h3>🧠 Takım Savaşı</h3>
+    <p>Arkadaşlarınla birleş, düşmanı yok et. 5v5 neon savaş alanında stratejini göster.</p>
+  </div>
+  <div class="card">
+    <h3>⚔️ Hayatta Kalma</h3>
+    <p>Tek başına, herkese karşı. Son kurşuna kadar savaş. Ayakta kalan kazanır!</p>
+  </div>
+  <div class="card">
+    <h3>🔫 Sniper Modu</h3>
+    <p>Uzak mesafeden hedefini seç, bir kurşun bir düşman. Gizli kal, hayatta kal.</p>
+  </div>
+  <div class="card">
+    <h3>🎯 Eğitim Alanı</h3>
+    <p>Reflekslerini geliştir, nişan yeteneklerini test et ve kendini hazırla.</p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 NeonFPS Studios. Tüm neon ışıkları saklıdır.
+</footer>
+
+</body>
+</html>
