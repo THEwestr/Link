@@ -74,10 +74,25 @@
     }
     .side-menu ul li a:hover { color: #f5c542; }
 
+    /* Menü kapatma butonu */
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: #f5c542;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    .close-btn:hover {
+      color: #d49b2a;
+    }
+
     .hero {
       text-align: center;
       padding: 60px 20px;
-      background: url('https://i.ibb.co/Zc1rCgM/pubg-bg.jpg') center/cover no-repeat;
+      background: url('images/bg.jpg') center/cover no-repeat;
       background-attachment: fixed;
     }
 
@@ -198,6 +213,7 @@
 
 <!-- Yan menü -->
 <div class="side-menu" id="sideMenu">
+  <button class="close-btn" onclick="closeMenu()">×</button>
   <h2>Menü</h2>
   <ul>
     <li><a href="#home">Ana Sayfa</a></li>
@@ -249,6 +265,24 @@
   function toggleMenu() {
     document.getElementById("sideMenu").classList.toggle("active");
   }
+
+  function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("active");
+  }
+
+  // Menü dışında tıklanınca kapatma
+  document.addEventListener("click", function(event) {
+    const menu = document.getElementById("sideMenu");
+    const button = document.querySelector(".menu-btn");
+    if (
+      menu.classList.contains("active") &&
+      !menu.contains(event.target) &&
+      !button.contains(event.target)
+    ) {
+      menu.classList.remove("active");
+    }
+  });
+
   function acceptCookies() {
     document.getElementById("cookieBanner").style.display = "none";
     localStorage.setItem("cookiesAccepted", "true");
