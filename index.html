@@ -6,46 +6,96 @@
   <title>StrikeCore</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background-color: #0d0d0d;
+      background-color: #1b1b1b;
       font-family: 'Roboto', sans-serif;
-      color: #fff;
+      color: #f0f0f0;
     }
 
     header {
-      background: #0f0f0f;
+      background: #232323;
       padding: 20px;
       text-align: center;
       font-family: 'Orbitron', sans-serif;
       font-size: 2em;
-      color: #00ffff;
-      text-shadow: 0 0 15px #00ffff;
-      box-shadow: 0 0 20px #00ffff20;
+      color: #f5c542; /* PUBG sarısı */
+      text-shadow: 0 0 5px #000;
+      border-bottom: 2px solid #3a3a3a;
+      position: relative;
     }
+
+    /* Menü butonu */
+    .menu-btn {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      background: #f5c542;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .menu-btn:hover {
+      background: #d49b2a;
+      color: #000;
+    }
+
+    /* Yan menü */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #2a2a2a;
+      border-right: 2px solid #444;
+      padding: 20px;
+      transition: left 0.3s;
+      z-index: 1000;
+    }
+    .side-menu.active {
+      left: 0;
+    }
+    .side-menu h2 {
+      margin-bottom: 20px;
+      color: #f5c542;
+    }
+    .side-menu ul { list-style: none; }
+    .side-menu ul li { margin: 15px 0; }
+    .side-menu ul li a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+    .side-menu ul li a:hover { color: #f5c542; }
 
     .hero {
       text-align: center;
-      padding: 50px 20px;
+      padding: 60px 20px;
+      background: url('https://i.ibb.co/Zc1rCgM/pubg-bg.jpg') center/cover no-repeat;
+      background-attachment: fixed;
     }
 
     .hero h1 {
       font-size: 3em;
-      color: #ff00ff;
-      text-shadow: 0 0 15px #ff00ff;
+      color: #f5c542;
+      text-shadow: 0 0 10px #000;
       margin-bottom: 20px;
     }
 
     .hero p {
       font-size: 1.2em;
-      color: #ccc;
+      color: #e0e0e0;
       max-width: 700px;
       margin: auto;
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      border-radius: 8px;
     }
 
     .play-button {
@@ -53,17 +103,15 @@
       margin-top: 30px;
       padding: 15px 40px;
       font-size: 1.2em;
-      background: #00ffff;
+      background: #f5c542;
       color: #000;
-      border-radius: 50px;
+      border-radius: 6px;
       text-decoration: none;
       transition: all 0.3s;
-      box-shadow: 0 0 20px #00ffffa0, 0 0 40px #00ffff40;
+      box-shadow: 0 4px 10px #000;
     }
-
     .play-button:hover {
-      background: #ff00ff;
-      box-shadow: 0 0 20px #ff00ffa0, 0 0 40px #ff00ff50;
+      background: #d49b2a;
       color: #fff;
     }
 
@@ -77,25 +125,22 @@
     }
 
     .card {
-      background: #1a1a1a;
-      border: 2px solid #00ffff40;
-      border-radius: 15px;
+      background: #2b2b2b;
+      border: 1px solid #444;
+      border-radius: 8px;
       padding: 20px;
       transition: transform 0.3s, box-shadow 0.3s;
       text-align: center;
-      box-shadow: 0 0 10px #00ffff20;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 20px #ff00ff60;
-      border-color: #ff00ff70;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
     }
 
     .card h3 {
-      color: #00ffff;
+      color: #f5c542;
       margin-bottom: 10px;
-      text-shadow: 0 0 10px #00ffff;
     }
 
     .card p {
@@ -107,39 +152,74 @@
       text-align: center;
       padding: 20px;
       font-size: 0.9em;
-      color: #888;
+      color: #999;
       border-top: 1px solid #333;
       margin-top: 50px;
     }
 
+    /* Çerez bildirimi */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #2b2b2b;
+      padding: 15px;
+      text-align: center;
+      font-size: 0.95em;
+      border-top: 2px solid #444;
+    }
+    .cookie-banner button {
+      margin-left: 15px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 4px;
+      background: #f5c542;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .cookie-banner button:hover {
+      background: #d49b2a;
+      color: #fff;
+    }
+
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2em;
-      }
-      .play-button {
-        font-size: 1em;
-        padding: 10px 25px;
-      }
+      .hero h1 { font-size: 2em; }
+      .play-button { font-size: 1em; padding: 10px 25px; }
     }
   </style>
 </head>
 <body>
 
-<header>Strike Core</header>
+<header>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  Strike Core
+</header>
+
+<!-- Yan menü -->
+<div class="side-menu" id="sideMenu">
+  <h2>Menü</h2>
+  <ul>
+    <li><a href="#home">Ana Sayfa</a></li>
+    <li><a href="#modes">Oyun Modları</a></li>
+    <li><a href="#download">İndir</a></li>
+    <li><a href="#contact">İletişim</a></li>
+  </ul>
+</div>
 
 <section class="hero">
-  <h1>Teröristlere karşı dayan</h1>
+  <h1>Hayatta Kal ve Zaferi Al</h1>
   <p>
-    Strike Core, bilim kurgu evreninde geçen   hızlı tempolu bir çok oyunculu FPS oyunudur. 
-    Işık, hız ve refleks burada her şeydir. Karanlıkta seni kim görecek?
+    Strike Core, gerçekçi bir savaş atmosferinde geçen çok oyunculu FPS oyunudur.
+    Strateji, refleks ve ekip çalışması burada her şeydir.
   </p>
   <a href="download" class="play-button">Şimdi Oyna</a>
 </section>
 
-<section class="modes">
+<section class="modes" id="modes">
   <div class="card">
     <h3>🧠 Takım Savaşı</h3>
-    <p>Arkadaşlarınla birleş, düşmanı yok et. 5v5 neon savaş alanında stratejini göster.</p>
+    <p>Arkadaşlarınla birleş, düşmanı yok et. 5v5 savaş alanında stratejini göster.</p>
   </div>
   <div class="card">
     <h3>⚔️ Hayatta Kalma</h3>
@@ -147,7 +227,7 @@
   </div>
   <div class="card">
     <h3>🔫 Sniper Modu</h3>
-    <p>Uzak mesafeden hedefini seç, bir kurşun bir düşman. Gizli kal, hayatta kal.</p>
+    <p>Uzak mesafeden hedefini seç, tek atışta düşmanı indir. Gizlen, hayatta kal.</p>
   </div>
   <div class="card">
     <h3>🎯 Eğitim Alanı</h3>
@@ -158,6 +238,27 @@
 <footer>
   &copy; 2025 StrikeCore Games. İyi oyunlar dileriz.
 </footer>
+
+<!-- Çerez bildirimi -->
+<div class="cookie-banner" id="cookieBanner">
+  Bu site çerezleri kullanmaktadır. Devam ederek bunu kabul etmiş olursunuz.
+  <button onclick="acceptCookies()">Kabul Et</button>
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("sideMenu").classList.toggle("active");
+  }
+  function acceptCookies() {
+    document.getElementById("cookieBanner").style.display = "none";
+    localStorage.setItem("cookiesAccepted", "true");
+  }
+  window.onload = function() {
+    if (localStorage.getItem("cookiesAccepted")) {
+      document.getElementById("cookieBanner").style.display = "none";
+    }
+  }
+</script>
 
 </body>
 </html>
