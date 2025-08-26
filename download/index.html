@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NeonFPS</title>
+  <title>StrikeCore</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
     * {
@@ -13,20 +13,20 @@
     }
 
     body {
-      background-color: #0d0d0d;
+      background-color: #1c1c1c;
       font-family: 'Roboto', sans-serif;
-      color: #fff;
+      color: #e0e0e0;
     }
 
     header {
-      background: #0f0f0f;
+      background: #222;
       padding: 20px;
       text-align: center;
       font-family: 'Orbitron', sans-serif;
       font-size: 2em;
-      color: #00ffff;
-      text-shadow: 0 0 15px #00ffff;
-      box-shadow: 0 0 20px #00ffff20;
+      color: #f0c200; /* sarı */
+      text-shadow: 0 0 8px #000;
+      border-bottom: 2px solid #444;
     }
 
     .hero {
@@ -36,35 +36,36 @@
 
     .hero h1 {
       font-size: 3em;
-      color: #ff00ff;
-      text-shadow: 0 0 15px #ff00ff;
+      color: #fff;
       margin-bottom: 20px;
+      text-shadow: 0 0 10px #000;
     }
 
     .hero p {
       font-size: 1.2em;
-      color: #ccc;
+      color: #bbb;
       max-width: 700px;
       margin: auto;
     }
 
     .play-button {
       display: inline-block;
-      margin-top: 30px;
+      margin-top: 20px;
       padding: 15px 40px;
-      font-size: 1.2em;
-      background: #00ffff;
+      font-size: 1.1em;
+      background: #f0c200; /* PUBG sarısı */
       color: #000;
-      border-radius: 50px;
+      border-radius: 8px;
       text-decoration: none;
+      font-weight: bold;
       transition: all 0.3s;
-      box-shadow: 0 0 20px #00ffffa0, 0 0 40px #00ffff40;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
 
     .play-button:hover {
-      background: #ff00ff;
-      box-shadow: 0 0 20px #ff00ffa0, 0 0 40px #ff00ff50;
-      color: #fff;
+      background: #ffda3d;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.6);
     }
 
     .modes {
@@ -77,25 +78,22 @@
     }
 
     .card {
-      background: #1a1a1a;
-      border: 2px solid #00ffff40;
-      border-radius: 15px;
+      background: #2a2a2a;
+      border: 1px solid #444;
+      border-radius: 10px;
       padding: 20px;
       transition: transform 0.3s, box-shadow 0.3s;
       text-align: center;
-      box-shadow: 0 0 10px #00ffff20;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 20px #ff00ff60;
-      border-color: #ff00ff70;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.7);
     }
 
     .card h3 {
-      color: #00ffff;
+      color: #f0c200;
       margin-bottom: 10px;
-      text-shadow: 0 0 10px #00ffff;
     }
 
     .card p {
@@ -125,31 +123,45 @@
 </head>
 <body>
 
-<header>Simdi Oyna</header>
+<header>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  Simdi Oyna</header>
 
+  <!-- Yan menü -->
+<div class="side-menu" id="sideMenu">
+  <button class="close-btn" onclick="closeMenu()">×</button>
+  <h2>Menü</h2>
+  <ul>
+    <li><a href="../index.html">Ana Sayfa</a></li>
+    <li><a href="#modes">Oyun Modları</a></li>
+    <li><a href="#contact">İletişim</a></li>
+  </ul>
+</div>
+
+ 
 <section class="hero">
-  <h1>Strike Core İndirin</h1>
+  <h1>Strike Core İndir</h1>
   <p>
     Strike Core indirmek için aşağıdaki bağlantılardan cihazınıza uygun olanı seçiniz.
   </p>
   <a href="#" class="play-button">Android .apk</a><br>
-<a href="#" class="play-button">PC Windows .exe</a><br>
-<a href="#" class="play-button">Xbox</a><br>
-<a href="#" class="play-button">PS5-PS4 store bağlantısı</a><br>
+  <a href="#" class="play-button">PC Windows .exe</a><br>
+  <a href="#" class="play-button">Xbox</a><br>
+  <a href="#" class="play-button">PS5 / PS4 Store</a><br>
 </section>
 
 <section class="modes">
   <div class="card">
-    <h3>Android-PC nasıl indirilir?</h3>
-    <p>Verilen bağlantıdaki apk/exe dosyası indirlir, daha sonra indirlen dosyayı dosyalardan bulup çalışırtırılır. Burdan sonrası kurulum</p>
+    <h3>Android & PC İndirme</h3>
+    <p>Verilen bağlantıdaki apk/exe dosyası indirilir, ardından dosya çalıştırılır. Buradan sonrası kurulum ekranıyla devam eder.</p>
   </div>
   <div class="card">
-    <h3>Kurulum nasıl yapılır(PC)</h3>
-    <p>Kurulum aşamasında makaleler ve sözleşmeler kabul edilir devamını uygulama otomatik olarak yapar.</p>
+    <h3>Kurulum (PC)</h3>
+    <p>Kurulum aşamasında lisans sözleşmeleri kabul edilir, devamını sistem otomatik tamamlar.</p>
   </div>
   <div class="card">
-    <h3>İndirdiğiniz için teşekkür ederiz</h3>
-    <p></p>
+    <h3>Teşekkürler</h3>
+    <p>Strike Core’u indirdiğiniz için teşekkür ederiz. İyi oyunlar!</p>
   </div>
 </section>
 
@@ -157,5 +169,240 @@
   &copy; 2025 StrikeCore Games. İyi oyunlar dileriz.
 </footer>
 
+  <script>
+  function toggleMenu() {
+    document.getElementById("sideMenu").classList.toggle("active");
+  }
+
+  function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("active");
+  }
+
+  // Menü dışında tıklanınca kapatma
+  document.addEventListener("click", function(event) {
+    const menu = document.getElementById("sideMenu");
+    const button = document.querySelector(".menu-btn");
+    if (
+      menu.classList.contains("active") &&
+      !menu.contains(event.target) &&
+      !button.contains(event.target)
+    ) {
+      menu.classList.remove("active");
+    }
+  });
+  
+  </script>
 </body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StrikeCore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #1b1b1b;
+      font-family: 'Roboto', sans-serif;
+      color: #f0f0f0;
+    }
+
+    header {
+      background: #232323;
+      padding: 20px;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2em;
+      color: #f5c542; /* PUBG sarısı */
+      text-shadow: 0 0 5px #000;
+      border-bottom: 2px solid #3a3a3a;
+      position: relative;
+    }
+
+    /* Menü butonu */
+    .menu-btn {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      background: #f5c542;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .menu-btn:hover {
+      background: #d49b2a;
+      color: #000;
+    }
+
+    /* Yan menü */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #2a2a2a;
+      border-right: 2px solid #444;
+      padding: 20px;
+      transition: left 0.3s;
+      z-index: 1000;
+    }
+    .side-menu.active {
+      left: 0;
+    }
+    .side-menu h2 {
+      margin-bottom: 20px;
+      color: #f5c542;
+    }
+    .side-menu ul { list-style: none; }
+    .side-menu ul li { margin: 15px 0; }
+    .side-menu ul li a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+    .side-menu ul li a:hover { color: #f5c542; }
+
+    /* Menü kapatma butonu */
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: #f5c542;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    .close-btn:hover {
+      color: #d49b2a;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: url('images/bg.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      color: #f5c542;
+      text-shadow: 0 0 10px #000;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      color: #e0e0e0;
+      max-width: 700px;
+      margin: auto;
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .play-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      background: #f5c542;
+      color: #000;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 10px #000;
+    }
+    .play-button:hover {
+      background: #d49b2a;
+      color: #fff;
+    }
+
+    .modes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: #2b2b2b;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    }
+
+    .card h3 {
+      color: #f5c542;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 0.95em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #999;
+      border-top: 1px solid #333;
+      margin-top: 50px;
+    }
+
+    /* Çerez bildirimi */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #2b2b2b;
+      padding: 15px;
+      text-align: center;
+      font-size: 0.95em;
+      border-top: 2px solid #444;
+    }
+    .cookie-banner button {
+      margin-left: 15px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 4px;
+      background: #f5c542;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .cookie-banner button:hover {
+      background: #d49b2a;
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2em; }
+      .play-button { font-size: 1em; padding: 10px 25px; }
+    }
+  </style>
 </html>
